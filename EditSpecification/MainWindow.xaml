@@ -1,0 +1,17 @@
+﻿<Window x:Class="EditSpecification.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EditSpecification"
+        xmlns:vm="clr-namespace:EditSpecification.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Button Content="Create Excel File" Command="{Binding CreateExcelFile}" Width="150" Height="20" Margin="0 0 200 0"/>
+        <Button Content="Edit Revit pecification" Command="{Binding EditRevitSpec}" Width="150" Height="20" Margin="200 0 0 0"/>
+    </Grid>
+</Window>
