@@ -31,10 +31,8 @@ namespace EditSpecification
             ExternalEvent ExEvent = ExternalEvent.Create(evHendler1);
 
             
-            ExEvent.Raise();
+            //ExEvent.Raise();
             mainWindowViewModel.ApplyEvent = ExEvent;
-            //ExEvent.Initialize();
-            //evHendler1.Raise();
 
 
 
