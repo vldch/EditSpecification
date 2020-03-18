@@ -25,21 +25,15 @@ namespace EditSpecification
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
             View view = doc.ActiveView;
-                       
-            RvtEventHendler_CreateExcelFile evHendler1 = new RvtEventHendler_CreateExcelFile(doc);
-            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
-            ExternalEvent ExEvent = ExternalEvent.Create(evHendler1);
 
-            
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            RvtEventHendler_CreateExcelFile evHendler1 = new RvtEventHendler_CreateExcelFile(uiapp);
+            ExternalEvent ExEvent = ExternalEvent.Create(evHendler1);
             //ExEvent.Raise();
             mainWindowViewModel.ApplyEvent = ExEvent;
-
-
-
             MainWindow mainWindow = new MainWindow(doc);
+            mainWindow.DataContext = mainWindowViewModel;
             mainWindow.Show();
-            
-
             return Result.Succeeded;
         }
 

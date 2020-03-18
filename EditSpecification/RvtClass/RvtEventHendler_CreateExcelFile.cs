@@ -18,10 +18,13 @@ namespace EditSpecification.RvtClass
     {
 
         public Document doc;
-
-        public RvtEventHendler_CreateExcelFile(Document Doc)
+        private UIApplication _uiapp;
+        public RvtEventHendler_CreateExcelFile(UIApplication uiapp)
         {
-            doc = Doc;
+            _uiapp = uiapp;
+            UIDocument uidoc = uiapp.ActiveUIDocument;
+            Application app = uiapp.Application;
+            doc = uidoc.Document;
         }
 
         //public void Initialize()
@@ -29,7 +32,7 @@ namespace EditSpecification.RvtClass
         //    externalEvent = ExternalEvent.Create(this);
         //}
         //public void Raise() => externalEvent.Raise();
-        public void Execute(UIApplication uiapp) 
+        public void Execute(UIApplication _uiapp) 
         {
             using (var transact = new Transaction(doc, "Apply new filters to selected Views"))
             {
@@ -44,14 +47,12 @@ namespace EditSpecification.RvtClass
                     var header = schedulesheet.GetTableData().GetSectionData(SectionType.Body).GetCellText(0, ii);
                     listValue.Add(header.ToString());
                 }
-
                 CreateExcelFile createExcelFile = new CreateExcelFile();
                 EditColumnsExcelFile editColumnsExcelFile = new EditColumnsExcelFile();
                 createExcelFile.GetExcelFile();
                 editColumnsExcelFile.EditExcelFile(listValue);
                 transact.Commit();
             }
-
         }
         public string GetName() => nameof(RvtEventHendler_CreateExcelFile);
         //public void ExcelOperations()

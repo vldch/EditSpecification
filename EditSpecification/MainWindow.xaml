@@ -7,9 +7,9 @@
         xmlns:vm="clr-namespace:EditSpecification.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:MainWindowViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Grid>
         <Button Content="Create Excel File" Command="{Binding CreateExcelFile}" Width="150" Height="20" Margin="0 0 200 0"/>
         <Button Content="Edit Revit pecification" Command="{Binding EditRevitSpec}" Width="150" Height="20" Margin="200 0 0 0"/>

@@ -21,7 +21,6 @@ namespace EditSpecification.ViewModel
             CreateExcelFile = new DelegateCommand(createExcelFile);
             EditRevitSpec = new DelegateCommand(editRevitSpec);
         }
-
         public ICommand CreateExcelFile { get; }
         public ICommand EditRevitSpec { get; }
 
@@ -38,7 +37,6 @@ namespace EditSpecification.ViewModel
             }
             
         }
-
         private void editRevitSpec()
         {
             
