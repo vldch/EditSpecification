@@ -27,10 +27,14 @@ namespace EditSpecification
             View view = doc.ActiveView;
 
             MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
-            RvtEventHendler_CreateExcelFile evHendler1 = new RvtEventHendler_CreateExcelFile(uiapp);
-            ExternalEvent ExEvent = ExternalEvent.Create(evHendler1);
-            //ExEvent.Raise();
-            mainWindowViewModel.ApplyEvent = ExEvent;
+            RvtEventHendler_CreateExcelFile evHendler_createExFile = new RvtEventHendler_CreateExcelFile(uiapp);
+            RvtEventHendler_EditSpecification evHendler_EditSpecification = new RvtEventHendler_EditSpecification(uiapp);
+
+            ExternalEvent ExEvent_createExFile = ExternalEvent.Create(evHendler_createExFile);
+            ExternalEvent ExEvent_editSpec = ExternalEvent.Create(evHendler_EditSpecification);
+
+            mainWindowViewModel.ApplyEvent_createExFile = ExEvent_createExFile;
+            mainWindowViewModel.ApplyEvent_editSpec = ExEvent_editSpec;
             MainWindow mainWindow = new MainWindow(doc);
             mainWindow.DataContext = mainWindowViewModel;
             mainWindow.Show();

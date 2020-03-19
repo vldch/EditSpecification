@@ -15,7 +15,8 @@ namespace EditSpecification.ViewModel
 {
     class MainWindowViewModel
     {
-        public ExternalEvent ApplyEvent;
+        public ExternalEvent ApplyEvent_createExFile;
+        public ExternalEvent ApplyEvent_editSpec;
         public MainWindowViewModel()
         {
             CreateExcelFile = new DelegateCommand(createExcelFile);
@@ -29,7 +30,7 @@ namespace EditSpecification.ViewModel
         {
             try
             {
-                ApplyEvent.Raise();
+                ApplyEvent_createExFile.Raise();
             }
             catch
             {
@@ -39,8 +40,14 @@ namespace EditSpecification.ViewModel
         }
         private void editRevitSpec()
         {
-            
+            try
+            {
+                ApplyEvent_editSpec.Raise();
+            }
+            catch
+            {
+                TaskDialog.Show("Иррор", "Це какая то хуйня");
+            }
         }
     }
-
 }

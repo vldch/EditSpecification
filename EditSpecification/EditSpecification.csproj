@@ -91,7 +91,9 @@
   <ItemGroup>
     <Compile Include="ExcelClass\CreateExcelFile.cs" />
     <Compile Include="ExcelClass\EditColumnsExcelFile.cs" />
+    <Compile Include="ExcelClass\GetExcelChanges.cs" />
     <Compile Include="RvtClass\RvtEventHendler_CreateExcelFile.cs" />
+    <Compile Include="RvtClass\RvtEventHendler_EditSpecification.cs" />
     <Compile Include="RvtExternalCommand.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">

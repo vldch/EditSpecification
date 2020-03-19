@@ -18,7 +18,6 @@ namespace EditSpecification.ExcelClass
             worksheetPart.Worksheet = new Worksheet(new SheetData());
 
             Sheets sheets = spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
-
             //В созданый файл добавляется новая книга
             Sheet sheet = new Sheet()
             {
