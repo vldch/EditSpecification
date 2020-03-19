@@ -46,7 +46,6 @@ namespace EditSpecification.RvtClass
                 EditColumnsExcelFile editColumnsExcelFile = new EditColumnsExcelFile();
                 createExcelFile.GetExcelFile();
                 editColumnsExcelFile.EditExcelFile(listValue);
-                TaskDialog.Show("Все ок", "всв  ");
                 transact.Commit();
             }
 

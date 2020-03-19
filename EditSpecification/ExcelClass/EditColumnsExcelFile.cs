@@ -16,7 +16,7 @@ namespace EditSpecification.ExcelClass
             using (SpreadsheetDocument spreadSheet = SpreadsheetDocument.Open(@"C:\Example\Add.xlsx", true))
             {
                 SharedStringTablePart shareStringPart;
-
+                
                 if (spreadSheet.WorkbookPart.GetPartsOfType<SharedStringTablePart>().Count() > 0)
                 {
                     shareStringPart = spreadSheet.WorkbookPart.GetPartsOfType<SharedStringTablePart>().First();

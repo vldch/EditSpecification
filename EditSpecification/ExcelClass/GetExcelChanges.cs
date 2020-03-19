@@ -40,7 +40,7 @@ namespace EditSpecification.ExcelClass
 
                     int gty = row.Descendants<Cell>().Count();
 
-                    for (int i = 1; i < gty; i++)
+                    for (int i = 0; i < gty; i++)
                     {
                         tempRow[i] = GetCellValue(spreadSheetDocument, row.Descendants<Cell>().ElementAt(i));
                     }

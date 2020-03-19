@@ -19,13 +19,13 @@ namespace EditSpecification.ExcelClass
 
             Sheets sheets = spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
             //В созданый файл добавляется новая книга
-            Sheet sheet = new Sheet()
-            {
-                Id = spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart),
-                SheetId = 1,
-                Name = "mySheet"
-            };
-            sheets.Append(sheet);
+            //Sheet sheet = new Sheet()
+            //{
+            //    Id = spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart),
+            //    SheetId = 1,
+            //    Name = "mySheet"
+            //};
+            //sheets.Append(sheet);
 
             workbookPart.Workbook.Save();
 

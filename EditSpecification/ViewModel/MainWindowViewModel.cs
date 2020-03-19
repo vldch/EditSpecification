@@ -31,6 +31,11 @@ namespace EditSpecification.ViewModel
             try
             {
                 ApplyEvent_createExFile.Raise();
+            //    string commandText = @"C:\Example\Add.xlsx";
+            //    var proc = new System.Diagnostics.Process();
+            //    proc.StartInfo.FileName = commandText;
+            //    proc.StartInfo.UseShellExecute = true;
+            //    proc.Start();
             }
             catch
             {

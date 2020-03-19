@@ -31,21 +31,30 @@ namespace EditSpecification.RvtClass
             View view = doc.ActiveView;
             using (var transact = new Transaction(doc, "Apply new filters to selected Views"))
             {
-                transact.Start();
-                AddString(view as ViewSchedule);
-                for (int i = 0; i < dt.Rows.Count; i++)
+                try
                 {
-                    for (int j = 1; j < dt.Rows[i].ItemArray.Length; j++)
-                    {
-                        string key = dt.Columns[j].ToString();
-                        string cellValue = dt.Rows[i].ItemArray[j].ToString();
-
-                        SetCellContent(view as ViewSchedule, GetLastRowNumber(view as ViewSchedule), cellValue, key);
-                    }
+                    transact.Start();
                     AddString(view as ViewSchedule);
-                }
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dt.Rows[i].ItemArray.Length; j++)
+                        {
+                            string key = dt.Columns[j].ToString();
+                            string cellValue = dt.Rows[i].ItemArray[j].ToString();
 
-                transact.Commit();
+                            SetCellContent(view as ViewSchedule, GetLastRowNumber(view as ViewSchedule), cellValue, key);
+                        }
+                        AddString(view as ViewSchedule);
+                    }
+
+                    transact.Commit();
+                }
+                catch
+                {
+                    TaskDialog.Show("ИРРРОР","Це какая то хуйгя");
+                }
+                //Нужно считывать параметр элемента а не имя заголовка или чтобы заголовок и параметр были одного имения
+
             }
         }
 
@@ -70,6 +79,7 @@ namespace EditSpecification.RvtClass
 
             FilteredElementCollector elements = new FilteredElementCollector(view.Document, view.Id);
             List<Element> listOfElement = new List<Element>();
+            listOfElement.Clear();
 
             foreach (Element element in elements)
             {
