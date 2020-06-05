@@ -15,6 +15,7 @@ namespace ConsoleApp1
             proc.StartInfo.FileName = commandText;
             proc.StartInfo.UseShellExecute = true;
 
+
             proc.Start();
 
         }
